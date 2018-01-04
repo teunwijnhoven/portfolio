@@ -52,7 +52,7 @@
 
 			function myFunction() {
 				var date, text;
-
+				console.log("myFunction");
     			// Get the value of the input field with id="numb"
     			date = document.getElementById("numb").value;
 
@@ -65,7 +65,9 @@
 				var eventDate = new Date(isNaN(x));
 
 				var currentTime = now.getTime();
+				console.log(currentTime);
 				var eventTime = eventDate.getTime();
+				console.log(eventTime);
 
 				var remTime = eventTime - currentTime;
 
@@ -92,7 +94,7 @@
 				setTimeout(countdown, 1000);
 			}
 
-			countdown();
+			//countdown();
 		</script>
 	</body>
 </html>
