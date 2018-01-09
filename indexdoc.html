@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Table</title>
+
+		<style type="text/css">
+
+		body {
+			background:#f6f6f6;
+		}
+
+		.countdownContainer {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+			text-align: center;
+			background-color: #ddd;
+			border: 1px solid #999;
+			padding: 10px;
+		}
+
+		.info {
+			font-size: 80px;
+		}
+
+		</style>
+
+	</head>
+	<body>
+		<div class="container">
+			<div class="tab tab-1">
+				<table id ="table" border="1">
+					<tr>
+						<th>Datum</th>
+						<th>Tijd</th>
+					</tr>
+				</table>
+			</div>
+			<div class="tabel2">
+				Datum :<input type="date" name="date" id="date">
+				Tijd :<input type="time" name="time" id="time">
+
+				<button onclick="addHTMLTableRow();">Voeg toe</button>
+
+			</div>
+		</div>
+
+		<script>
+
+			// Voeg rij toe
+
+			function addHTMLTableRow()
+			{
+				// get table bij id, maak new  row and cells, put input in cells
+				var table = document.getElementById("table"),
+					newRow = table.insertRow(table.length),
+					cell1 = newRow.insertCell(0),
+					cell2 = newRow.insertCell(1),
+					date = document.getElementById("date").value,
+					time = document.getElementById("time").value;
+
+				cell1.innerHTML = date;
+				cell2.innerHTML = time;
+
+			}
+
+		</script>
+
+	</body>
+</html>

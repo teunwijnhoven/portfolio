@@ -1,6 +1,6 @@
 var counter = (function () {
 
-var date = "";
+
 
 	function myFunction() {
 		
@@ -43,7 +43,9 @@ var date = "";
 		setTimeout(countdown, 1000);
 	}
 
-// Functies die je van buiten de Library kan aanroepen
+
+
+	// 
     return {
 
         countdown: countdown,
