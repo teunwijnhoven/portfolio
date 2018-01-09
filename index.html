@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+
+
 	<head>
 		<title>Countdown</title>
 		<style type="text/css">
@@ -27,7 +29,8 @@
 	</head>
 	<body>
 
-		<input id="numb">
+		<input id="numb" type="date">
+		<input id="tme" type="time">
 
 		<button type="button" onclick="myFunction()">Submit</button>
 
@@ -50,24 +53,23 @@
 
 		<script type="text/javascript">
 
-			function myFunction() {
-				var date, text;
-				console.log("myFunction");
-    			// Get the value of the input field with id="numb"
-    			date = document.getElementById("numb").value;
+			var date = "";
 
-    			countdown(date);
+			function myFunction() {
+				
+    			// Zet de datum en tijd samen in variabele date en roep vervolgens functie coutndown aan
+    			date = document.getElementById("numb").value + " " + document.getElementById("tme").value;
+
+    			countdown();
 
     		}
 
-			function countdown(x){
+			function countdown(){
 				var now = new Date();
-				var eventDate = new Date(isNaN(x));
+				var eventDate = new Date(date);
 
 				var currentTime = now.getTime();
-				console.log(currentTime);
 				var eventTime = eventDate.getTime();
-				console.log(eventTime);
 
 				var remTime = eventTime - currentTime;
 
@@ -94,7 +96,8 @@
 				setTimeout(countdown, 1000);
 			}
 
-			//countdown();
 		</script>
+
+
 	</body>
 </html>
