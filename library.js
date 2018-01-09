@@ -1,42 +1,54 @@
+var counter = (function () {
+
 var date = "";
 
-			function myFunction() {
-				
-    			// Get the value of the input field with id="numb"
-    			date = document.getElementById("numb").value + " " + document.getElementById("tme").value;
+	function myFunction() {
+		
+		// Get the value of the input field with id="numb"
+		date = document.getElementById("numb").value + " " + document.getElementById("tme").value;
 
-    			countdown();
+		countdown();
 
-    		}
+	}
 
-			function countdown(){
-				var now = new Date();
-				var eventDate = new Date(date);
+	function countdown(){
+		var now = new Date();
+		var eventDate = new Date(date);
 
-				var currentTime = now.getTime();
-				var eventTime = eventDate.getTime();
+		var currentTime = now.getTime();
+		var eventTime = eventDate.getTime();
 
-				var remTime = eventTime - currentTime;
+		var remTime = eventTime - currentTime;
 
-				var s = Math.floor(remTime / 1000);
-				var m = Math.floor(s / 60);
-				var h = Math.floor(m / 60);
-				var d = Math.floor(h / 24);
+		var s = Math.floor(remTime / 1000);
+		var m = Math.floor(s / 60);
+		var h = Math.floor(m / 60);
+		var d = Math.floor(h / 24);
 
-				h %= 24;
-				m %= 60;
-				s %= 60;
+		h %= 24;
+		m %= 60;
+		s %= 60;
 
-				h = (h < 10) ? "0" + h : h;
-				m = (m < 10) ? "0" + m : m;
-				s = (s < 10) ? "0" + s : s;
+		h = (h < 10) ? "0" + h : h;
+		m = (m < 10) ? "0" + m : m;
+		s = (s < 10) ? "0" + s : s;
 
-				document.getElementById("dagen").textContent = d;
-				document.getElementById("dagen").innetText = d;
+		document.getElementById("dagen").textContent = d;
+		document.getElementById("dagen").innetText = d;
 
-				document.getElementById("uren").textContent = h;
-				document.getElementById("minuten").textContent = m;
-				document.getElementById("seconden").textContent = s;
+		document.getElementById("uren").textContent = h;
+		document.getElementById("minuten").textContent = m;
+		document.getElementById("seconden").textContent = s;
 
-				setTimeout(countdown, 1000);
-			}
+		setTimeout(countdown, 1000);
+	}
+
+// Functies die je van buiten de Library kan aanroepen
+    return {
+
+        countdown: countdown,
+        myFunction: myFunction
+
+    }
+
+})()
