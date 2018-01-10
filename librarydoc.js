@@ -1,19 +1,21 @@
 var counter = (function () {
 
-	var date = "";
 	var btnid = 1;
+
+	var defaultSettings = {
+        interval: 1,
+        defaultdate: '01-01-2019',
+        defaulttime: '00:00'
+    }
 
 	function myFunction(event) {
 	
-		// Get the value of the input field with id="numb"
-		date = document.getElementById("numb").value + " " + document.getElementById("tme").value;
-
 		var table = document.getElementById("table");
 
 		date = table.rows[event.target.id].cells.item(0).innerHTML + " " + table.rows[event.target.id].cells.item(1).innerHTML;
 
-		alert(date);
-		alert(event.target.id);
+		// alert(date);
+		// alert(event.target.id);
 
 		countdown();
 
@@ -48,7 +50,7 @@ var counter = (function () {
 		document.getElementById("minuten").textContent = m;
 		document.getElementById("seconden").textContent = s;
 
-		setTimeout(countdown, 1000);
+		setTimeout(countdown, defaultSettings.interval*1000);
 	}
 
 
@@ -64,14 +66,21 @@ var counter = (function () {
 			cell3 = newRow.insertCell(2),
 			date = document.getElementById("date").value,
 			time = document.getElementById("time").value;
+			
+		if (date == '') {
+			date = defaultSettings.defaultdate;
+			alert ('Let op je hebt geen datum ingevuld, de defaultdatum word gebruikt voor de countdown ')
+		}	
 
+		if (time == '') {
+			time = defaultSettings.defaulttime;
+		}
 
 		cell1.innerHTML = date;
 		cell2.innerHTML = time;
 
 		var buttonnode= document.createElement('input');
 		buttonnode.setAttribute('type','button');
-		buttonnode.setAttribute('name','sal');
 		buttonnode.setAttribute('value','START!');
 		buttonnode.setAttribute('id',btnid);
 		btnid = btnid + 1;
@@ -80,10 +89,8 @@ var counter = (function () {
 		buttonnode.addEventListener("click", myFunction, false);
 	}
 
-
 	// 
     return {
-
 
     	myFunction: myFunction,
     	countdown: countdown,
