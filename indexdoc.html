@@ -3,69 +3,58 @@
 	<head>
 		<title>Table</title>
 
-		<style type="text/css">
-
-		body {
-			background:#f6f6f6;
-		}
-
-		.countdownContainer {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translateX(-50%) translateY(-50%);
-			text-align: center;
-			background-color: #ddd;
-			border: 1px solid #999;
-			padding: 10px;
-		}
-
-		.info {
-			font-size: 80px;
-		}
+		<link rel="stylesheet" type="text/css" href="style.css">
 
 		</style>
 
 	</head>
 	<body>
-		<div class="container">
+
+		<div class="countdownContainer">
+
 			<div class="tab tab-1">
 				<table id ="table" border="1">
 					<tr>
 						<th>Datum</th>
-						<th>Tijd</th>
-					</tr>
+						<th>Tijd</th> 
+						<th>Start Countdown</th>         
+					</tr>	
 				</table>
 			</div>
-			<div class="tabel2">
-				Datum :<input type="date" name="date" id="date">
-				Tijd :<input type="time" name="time" id="time">
 
-				<button onclick="addHTMLTableRow();">Voeg toe</button>
+			<div class="tabel2">
+				Datum :<input type="date" id="date">
+				Tijd :<input type="time" id="time">
+
+				<button onclick="counter.addHTMLTableRow();">Voeg toe</button>
 
 			</div>
+
 		</div>
 
-		<script>
+		<input id="numb" type="date">
+		<input id="tme" type="time">
 
-			// Voeg rij toe
+		<table class="countdown">
+			<tr class="info">
+				<td colspan="4">Countdown</td>
+			</tr>
+			<tr class="info">
+				<td id="dagen"></td>
+				<td id="uren"></td>
+				<td id="minuten"></td>
+				<td id="seconden"></td>
+			</tr>
+			<tr>
+				<td>Dagen</td>
+				<td>Uren</td>
+				<td>Minuten</td>
+				<td>Seconden</td>
+		</table> 
 
-			function addHTMLTableRow()
-			{
-				// get table bij id, maak new  row and cells, put input in cells
-				var table = document.getElementById("table"),
-					newRow = table.insertRow(table.length),
-					cell1 = newRow.insertCell(0),
-					cell2 = newRow.insertCell(1),
-					date = document.getElementById("date").value,
-					time = document.getElementById("time").value;
+    <script type="text/javascript" src="librarydoc.js"></script>
 
-				cell1.innerHTML = date;
-				cell2.innerHTML = time;
 
-			}
-
-		</script>
 
 	</body>
 </html>
